@@ -1,0 +1,34 @@
+
+:root {
+  --dark-green: #3b4a1d;
+  --light-green: #c4ff9b;
+}
+.navbar-light-green {
+  background-color: #3b4a1d !important ;
+}
+
+.navbar-brand {
+    color: #FFFFFF !important;
+  }
+
+.navbar-btn{
+    background-color:#D2FD9C ;
+}
+
+.hero-section {
+  background-color: var(--dark-green);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-loan {
+  background-color: #7aa33c;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.3s;
+}
