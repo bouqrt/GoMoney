@@ -8,15 +8,47 @@
     <title> GoMoney </title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light-green bg-success shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold text-success" href="#"> GoMoney</a>
             <a href="#" class="btn btn-light text-dark fw-semibold px-3 rounded-pill">Commencez</a>
         </div>
     </nav>
+        
+    <div class="container form-container">
+        <p class="mb-4">Saisissez les informations suivantes pour effectuer les calculs :</p>
 
+        <form class="mx-auto" style="max-width: 500px;">
+            <div class="mb-3">
+                <label for="loanAmount" class="form-label">Le montant du prêt souhaité :</label>
+                <input type="number" class="form-control" id="loanAmount" placeholder="Ex : 200000">
+            </div>
+
+            <div class="mb-3">
+                <label for="loanDuration" class="form-label">La durée du remboursement :</label>
+                <input type="number" class="form-control" id="loanDuration" placeholder="Ex : 10 ans">
+            </div>
+
+            <div class="mb-4">
+                <label for="salary" class="form-label">Votre salaire mensuel :</label>
+                <input type="number" class="form-control" id="salary" placeholder="Ex : 8000">
+            </div>
+
+            <button type="submit" class="submit-btn">Calculer</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo mb-2">
+                <i class="bi bi-arrow-right-circle-fill me-1"></i> GoMoney
+            </div>
+            <div>
+                 © 2025 LoanSimulator — Tous Droits Réservés.<br>
+                <a href="mailto:Contact@GoMoney.com">Contact@GoMoney.com</a>
+            </div>
         </div>
-    </section>
+    </footer>
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

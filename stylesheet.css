@@ -17,7 +17,7 @@
 
 .hero-section {
   background-color: var(--dark-green);
-  min-height: 100vh;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,4 +31,98 @@
   border-radius: 10px;
   font-weight: 500;
   transition: 0.3s;
+}
+
+body {
+  background-color: #3b490d; /* dark olive green */
+  color: #c4ff9b; /* light green text */
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+    /* 🟢 Navbar */
+.navbar {
+  background-color: #3b490d;
+}
+
+.btn-start {
+  background-color: #c4ff9b;
+  color: #2e4000;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.btn-start:hover {
+  background-color: #b3e88b;
+}
+
+    /* 🧾 Form styling */
+.form-container {
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.form-control {
+  background-color: #5a6b1a;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 1rem;
+}
+
+.form-control::placeholder {
+  color: #dce8c2;
+}
+
+label {
+  color: #ffffff;
+  display: block;
+  text-align: left;
+  font-weight: 500;
+}
+
+.submit-btn {
+  background-color: #c4ff9b;
+  color: #2e4000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 25px;
+  font-weight: 600;
+  transition: 0.2s ease-in-out;
+}
+
+.submit-btn:hover {
+  background-color: #b3e88b;
+}
+
+footer {
+  background-color: #c4ff9b;
+  color: #2e4000; /* dark green text */
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+}
+
+.footer-logo {
+  background-color: #2e4000;
+  color: #c4ff9b;
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+footer a {
+  color: #2e4000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
