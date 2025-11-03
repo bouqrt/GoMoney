@@ -1,57 +1,68 @@
-
-
-
-const loanTypeForm = document.getElementById("loanTypeForm");
-if (loanTypeForm) {
-  loanTypeForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const type = document.getElementById("loanType").value;
-    localStorage.setItem("loanType", type);
-    window.location.href = "infos.html"; // go to next page
-  });
+function selectLoan(type) {
+  // Save the selected loan type
+  localStorage.setItem("loanType", type);
+  // Go to next page
+  window.location.href = "personalinfos.html";
 }
-
 const loanForm = document.getElementById("loanForm");
 if (loanForm) {
-  loanForm.addEventListener("submit", (e) => {
+  loanForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    localStorage.setItem("loanAmount", document.getElementById("loanAmount").value);
-    localStorage.setItem("loanDuration", document.getElementById("loanDuration").value);
-    localStorage.setItem("salary", document.getElementById("salary").value);
-    window.location.href = "result.html";
+
+    const amount = document.getElementById("loanAmount").value;
+    const duration = document.getElementById("loanDuration").value;
+    const salary = document.getElementById("salary").value;
+
+    // Save form data
+    localStorage.setItem("loanAmount", amount);
+    localStorage.setItem("loanDuration", duration);
+    localStorage.setItem("salary", salary);
+
+    // Redirect to results page
+    window.location.href = "results.html";
   });
 }
 
-if (window.location.pathname.endsWith("result.html")) {
-  const amount = parseFloat(localStorage.getItem("loanAmount"));
-  const years = parseFloat(localStorage.getItem("loanDuration"));
-  const salary = parseFloat(localStorage.getItem("salary"));
-  const type = localStorage.getItem("loanType");
+// === Retrieve data ===
+const loanType = localStorage.getItem("loanType");
+const amount = parseFloat(localStorage.getItem("loanAmount"));
+const years = parseFloat(localStorage.getItem("loanDuration"));
+const salary = parseFloat(localStorage.getItem("salary"));
 
-  // Adjust rate depending on type of loan
-  let rate;
-  if (type === "maison") rate = 0.045;
-  else if (type === "terrain") rate = 0.05;
-  else rate = 0.055;
+// === Calculate ===
+const interestRate = 4.5;
+const monthlyRate = interestRate / 100 / 12;
+const months = years * 12;
+const monthlyPayment = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
+const totalPayment = monthlyPayment * months;
+const totalInterest = totalPayment - amount;
 
-  const months = years * 12;
-  const monthlyRate = rate / 12;
-  const monthlyPayment = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
-  const totalPayment = monthlyPayment * months;
-  const totalInterest = totalPayment - amount;
+// === Display results ===
+document.getElementById("loanType").textContent = loanType || "—";
+document.getElementById("loanAmount").textContent = amount.toFixed(2);
+document.getElementById("interestRate").textContent = interestRate.toFixed(2);
+document.getElementById("monthlyPayment").textContent = monthlyPayment.toFixed(2);
+document.getElementById("totalInterest").textContent = totalInterest.toFixed(2);
+document.getElementById("totalPayment").textContent = totalPayment.toFixed(2);
 
-  // Inject data into HTML
-  document.getElementById("loanType").textContent = type;
-  document.getElementById("monthlyPayment").textContent = monthlyPayment.toFixed(2);
-  document.getElementById("totalInterest").textContent = totalInterest.toFixed(2);
-  document.getElementById("totalPayment").textContent = totalPayment.toFixed(2);
-
-  // Salary check
-  const warning = document.getElementById("warningMessage");
-  const maxAffordable = salary * 0.4;
-  if (monthlyPayment > maxAffordable) {
-    warning.textContent = "⚠️ Le prêt dépasse 40% de votre salaire.";
-  } else {
-    warning.textContent = "✅ Le prêt est accessible.";
-  }
+// === Conditions ===
+const warning = document.getElementById("warningMessage");
+if (monthlyPayment < 40) {
+  warning.textContent = "❌ Le prêt n’est pas possible : la mensualité est inférieure à 40 MAD.";
+} else {
+  warning.textContent = "✅ Le prêt est réalisable selon les informations fournies.";
 }
+
+// === Recap ===
+const recap = document.getElementById("recapMessage");
+recap.innerHTML = `
+  <h6>🧾 Récapitulatif :</h6>
+  <ul class="list-unstyled m-0">
+    <li><strong>Type de prêt :</strong> ${loanType}</li>
+    <li><strong>Montant demandé :</strong> ${amount.toFixed(2)} MAD</li>
+    <li><strong>Taux appliqué :</strong> ${interestRate.toFixed(2)} %</li>
+    <li><strong>Mensualité :</strong> ${monthlyPayment.toFixed(2)} MAD</li>
+    <li><strong>Total des intérêts :</strong> ${totalInterest.toFixed(2)} MAD</li>
+    <li><strong>Montant total à rembourser :</strong> ${totalPayment.toFixed(2)} MAD</li>
+  </ul>
+`;

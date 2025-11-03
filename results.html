@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="stylesheet.css" rel="stylesheet">
-    <title> GoMoney </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoMoney – Résultats</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="stylesheet.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light-green bg-success shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-success" href="#"> GoMoney</a>
-            <a href="#" class="btn btn-light text-dark fw-semibold px-3 rounded-pill">Commencez</a>
-        </div>
-    </nav>
 
-    <div class="result-box mt-4" id="resultBox">
-      <h5>Résultats de la simulation :</h5>
-      <p><strong>Mensualité :</strong> <span id="monthlyPayment"></span> MAD</p>
-      <p><strong>Total des intérêts :</strong> <span id="totalInterest"></span> MAD</p>
-      <p><strong>Montant total à rembourser :</strong> <span id="totalPayment"></span> MAD</p>
-      <p id="warningMessage" class="warning"></p>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-light-green shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-light" href="#">GoMoney</a>
+      <a href="index.html" class="btn btn-light text-dark fw-semibold px-3 rounded-pill">Accueil</a>
     </div>
+  </nav>
 
-    <footer>
-        <div class="container">
-            <div class="footer-logo mb-2">
-                <i class="bi bi-arrow-right-circle-fill me-1"></i> GoMoney
-            </div>
-            <div>
-                 © 2025 LoanSimulator — Tous Droits Réservés.<br>
-                <a href="mailto:Contact@GoMoney.com">Contact@GoMoney.com</a>
-            </div>
-        </div>
-    </footer>
+  <!-- Results Section -->
+  <div class="container text-center mt-5">
+    <div class="result-box mx-auto p-4 rounded-4">
+      <h4 class="mb-4 text-white">Résultats de la simulation :</h4>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    
+      <p><strong>Type de prêt :</strong> <span id="loanType">—</span></p>
+      <p><strong>Montant demandé :</strong> <span id="loanAmount">—</span> MAD</p>
+      <p><strong>Taux appliqué :</strong> <span id="interestRate">—</span> %</p>
+      <p><strong>Mensualité :</strong> <span id="monthlyPayment">—</span> MAD</p>
+      <p><strong>Total des intérêts :</strong> <span id="totalInterest">—</span> MAD</p>
+      <p><strong>Montant total à rembourser :</strong> <span id="totalPayment">—</span> MAD</p>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="GoMoney.js"></script>
-    
+      <p id="warningMessage" class="warning mt-4"></p>
+
+      <div id="recapMessage" class="recap mt-4 p-3 rounded-3"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo mb-2"><i class="bi bi-cash-stack me-1"></i> GoMoney</div>
+      <div>© 2025 GoMoney — Tous droits réservés.<br>
+        <a href="mailto:contact@gomoney.com">contact@gomoney.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="GoMoney.js"></script>
 </body>
 </html>
